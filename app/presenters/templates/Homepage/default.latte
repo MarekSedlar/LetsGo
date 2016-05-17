@@ -1,0 +1,21 @@
+{* This is the welcome page, you can delete it *}
+
+{block content}
+    {form signUpForm}
+    <div style="width:270px;position:absolute;left:50%;right:50%;margin-left:-135px;">
+      <div n:if="$form->hasErrors()">
+        <p n:foreach="$form->errors as $error">{$error}</p>
+      </div>
+      <h2>Přihlášení</h2>
+      <label>Username:</label>
+      {input username}
+      <br>
+      <label>Password:</label>
+      {input password}
+      <br>
+      {input remember}
+      <br>
+      {input send}
+    </div>
+    {/form}
+{/block}

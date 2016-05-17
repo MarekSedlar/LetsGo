@@ -1,0 +1,61 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Poèítaè: 127.0.0.1
+-- Vytvoøeno: Úte 17. kvì 2016, 20:58
+-- Verze serveru: 10.1.13-MariaDB
+-- Verze PHP: 7.0.5
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Databáze: `users`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabulky `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(10) NOT NULL,
+  `username` varchar(25) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `email` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `role` varchar(10) COLLATE utf8_czech_ci NOT NULL DEFAULT 'admin'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+
+--
+-- Vypisuji data pro tabulku `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`) VALUES
+(1, 'admin', '$2y$10$KlBUrDrCNNUADy68t9CYKul/yHG5m/M27jgQNb9NW2oXC7I3Wacd6', 'admin@dmaim.tld', 'admin'),
+(3, 'nette', 'nette', 'nette@nette.tld', 'user'),
+(4, 'nette2', 'nette2', 'nette2@nette.tld', 'admin'),
+(5, 'nette5', '$2y$10$tvAhf2rj0ksKQj8QWrrcVOWkxXNk4WezgqljTQSAHrLAxg9PZOfdy', 'nette5@nette.tld', 'user');
+
+--
+-- Klíèe pro exportované tabulky
+--
+
+--
+-- Klíèe pro tabulku `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT pro tabulky
+--
+
+--
+-- AUTO_INCREMENT pro tabulku `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
